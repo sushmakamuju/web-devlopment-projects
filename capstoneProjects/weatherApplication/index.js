@@ -5,7 +5,7 @@ import axios from "axios";
 import fs from "fs";
 const app=express();
 const port=3000;
-const APIKey="0ff2482dbd47393d7e396802a58ca1ba";
+const APIKey="";
 function f()
 {
   var result;
