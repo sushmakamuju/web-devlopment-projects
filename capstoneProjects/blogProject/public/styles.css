@@ -1,0 +1,73 @@
+.c1
+{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    gap:8px;
+    top: 100px;
+    margin: 10px;
+    border: solid 0.5px white;
+}
+.c1 >p{
+    margin: 0;
+}
+.c2
+{
+    margin-left: 200px;
+    margin-right: 200px;
+
+}
+.c3
+{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+/* fonts for more text  */
+.pt-serif-regular {
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .pt-serif-bold {
+    font-family: "PT Serif", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .pt-serif-regular-italic {
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .pt-serif-bold-italic {
+    font-family: "PT Serif", serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+  p{
+    font-size: 15px;
+  }
+  h1,.btn,h3
+  {
+    font-family: "pt-serif-regular-italic";
+  }
+
+  html
+  {
+    background-color: gainsboro;
+  }
+  .c2{
+    background-color: white;
+    padding-left: 15px;
+  }
+
+
+.dancing-script-italic {
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: "auto";
+  font-weight: 400;
+  font-style: "normal";
+}
