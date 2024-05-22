@@ -1,0 +1,182 @@
+<!-- weatherRightNow, weatherIcon, weather5Days -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Fira+Code:wght@300..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Serif+Caption:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100&family=Tenor+Sans&family=Whisper&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Fira+Code:wght@300..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Serif+Caption:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100&family=Tenor+Sans&family=Whisper&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Fira+Code:wght@300..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Serif+Caption:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Pacifico&family=Poppins:wght@100&family=Tenor+Sans&family=Whisper&display=swap" rel="stylesheet">
+</head>
+<body>
+    <% console.log(duration);%>
+    <%var temp=[];%>
+    <% var times=[];%>
+    <% var pressure=[];%>
+    <%for(var i=0;i<weather5Days.list.length;i++){%>
+         <%temp.push(parseInt(weather5Days.list[i].main.temp));%>
+    <%}%>
+    <%for(var i=0;i<weather5Days.list.length;i++){%>
+        <%times.push(parseInt(weather5Days.list[i].dt_txt.substring(11, 13)));%>
+   <%}%>
+   <%for(var i=0;i<weather5Days.list.length;i++){%>
+    <%pressure.push(parseInt(weather5Days.list[i].main.pressure));%>
+    <%}%>
+    
+    <div class="class4">
+        <!-- first box showing on the home page  -->
+        <p class="pacifico-regular"><%=quote%></p>
+        <div class="class5">
+            <h1><%=weatherRightNow.main.temp%> °C</h1>
+            <div class="class6">
+                <img src="<%=weatherIcon
+                %>" alt="weather right now" /> 
+                <p><%=weatherRightNow.weather[0].description%></p>
+            </div>
+            <p><%=weatherRightNow.name%> Weather</p>
+        </div>
+        <!-- second box on the home page  -->
+        <div class="class7">
+            <p>Today weather <%=time %></p>
+            <div class="flex1">
+                <p>Max </p>
+                <h1><%=weatherRightNow.main.temp_max %> °C</h1>
+            </div>
+            <div class="flex2">
+                <p>Min</p>
+                <h1><%=weatherRightNow.main.temp_min%> °C</h1>
+            </div>
+            <div class="class6">
+                <img src="<%=weatherIcon%>" alt="weather right now" /> 
+                <p><%=weatherRightNow.weather[0].description%></p>
+            </div>
+            <p><%=weatherRightNow.name%></p>
+        </div>
+    </div>
+    <!-- current weather  -->
+    <h1 style="text-align: center; margin-top: 30px;">See how today is like</h1>
+    <div class="wholeDiv">
+        <h3>Current Weather</h3>
+        <div class="class8">
+            <div>
+                    <!-- svg name value  -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-thermometer-half" viewBox="0 0 16 16">
+                    <path d="M9.5 12.5a1.5 1.5 0 1 1-2-1.415V6.5a.5.5 0 0 1 1 0v4.585a1.5 1.5 0 0 1 1 1.415"/>
+                    <path d="M5.5 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0zM8 1a1.5 1.5 0 0 0-1.5 1.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0l-.166-.15V2.5A1.5 1.5 0 0 0 8 1"/>
+                  </svg>
+                  <p>Temperature</p>
+                  <h1><%=weatherRightNow.main.temp%> °C</h1>
+            </div>
+            <div>
+                <svg class="svg-icon" style="width: 80px; height: 80px;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M480 712.64V352.064a32 32 0 1 1 64 0V712.64a64 64 0 1 1-64 0z m160-104.576a32 32 0 1 1 0-64v-32a32 32 0 1 1 0-64v-32a32 32 0 0 1 0-64v-8.96a124.16 124.16 0 0 0-130.56-119.04 120 120 0 0 0-125.44 119.04v8.96a32 32 0 1 1 0 64v32a32 32 0 1 1 0 64v32a32 32 0 0 1 0 64v96a96 96 0 1 1-192 0v-32a32 32 0 0 1 64 0v32a32 32 0 1 0 64 0v-360.96a182.72 182.72 0 0 1 187.84-183.04H512a187.2 187.2 0 0 1 192 183.04v360.96a32 32 0 1 0 64 0v-32a32 32 0 0 1 64 0v32a96 96 0 1 1-192 0v-96z m160-32a32 32 0 0 1-32-32v-192a32 32 0 0 1 64 0v192a32 32 0 0 1-32 32z m-576 0a32 32 0 0 1-32-32v-192a32 32 0 1 1 64 0v192a32 32 0 0 1-32 32z"  /></svg>
+                <p>Pressure</p>
+                <p><%=weatherRightNow.main.pressure %></p>
+            </div>
+            <div>
+                <svg class="svg-icon" style="width: 80px; height: 80px;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M480 64A416.32 416.32 0 0 0 64 480C64 709.504 250.496 896 480 896c2.24 0 4.48-0.256 6.72-0.768 19.52-0.256 39.04-1.984 57.792-4.992a252.288 252.288 0 0 1-24-60.8c-13.248 1.536-26.752 2.56-40.512 2.56A351.552 351.552 0 0 1 128 480C128 285.248 285.248 128 480 128a352.256 352.256 0 0 1 340.992 264c-0.256 0-0.256 0 0 0 1.984 7.744 3.008 15.744 4.48 23.744l14.72 17.28c12.288 13.696 32.576 37.952 54.784 66.944 0.256-6.464 1.024-13.248 1.024-19.968 0-33.472-4.224-67.2-12.224-99.52a83.84 83.84 0 0 0-0.768-4.48A416.768 416.768 0 0 0 480 64z m0 128C321.28 192 192 321.28 192 480a32 32 0 1 0 64 0 223.616 223.616 0 0 1 299.008-211.008l48.96-48.512a287.744 287.744 0 0 0-119.68-28.224C482.688 192 481.408 192 480 192z m191.232 63.744a32.448 32.448 0 0 0-21.952 9.728l-191.808 192a31.872 31.872 0 1 0 45.056 45.056l192.192-192a32.192 32.192 0 0 0 7.04-35.264 32.64 32.64 0 0 0-30.528-19.52zM768 447.232l-24 27.776s-40.96 46.976-81.984 105.472c-20.736 29.248-41.536 61.504-57.536 93.248C588.48 705.472 576 736.256 576 768c0 105.728 86.272 192 192 192s192-86.272 192-192c0-31.744-12.48-62.528-28.48-94.272-16-31.744-36.8-64-57.536-93.248-40.96-58.496-81.984-105.472-81.984-105.472z m0 100.736c14.016 17.024 27.008 31.04 54.016 69.312 19.2 27.712 38.464 57.984 52.48 85.44 14.016 27.264 21.504 52.8 21.504 65.28 0 71.04-56.96 128-128 128-71.04 0-128-56.96-128-128 0-12.48 7.488-38.016 21.504-65.28 14.016-27.52 33.28-57.728 52.48-85.44 27.008-38.272 40-52.288 54.016-69.248z"  /></svg>
+                <p>Humidity</p>
+                <p><%=weatherRightNow.main.humidity %></p>
+            </div>
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wind" viewBox="0 0 16 16">
+                    <path d="M12.5 2A2.5 2.5 0 0 0 10 4.5a.5.5 0 0 1-1 0A3.5 3.5 0 1 1 12.5 8H.5a.5.5 0 0 1 0-1h12a2.5 2.5 0 0 0 0-5m-7 1a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 2 2h-5a.5.5 0 0 1 0-1h5a1 1 0 0 0 0-2M0 9.5A.5.5 0 0 1 .5 9h10.042a3 3 0 1 1-3 3 .5.5 0 0 1 1 0 2 2 0 1 0 2-2H.5a.5.5 0 0 1-.5-.5"/>
+                </svg>
+                <p>Wind</p>
+                <p><%= weatherRightNow.wind.speed%></p>
+            </div>
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clouds" viewBox="0 0 16 16">
+                    <path d="M16 7.5a2.5 2.5 0 0 1-1.456 2.272 3.5 3.5 0 0 0-.65-.824 1.5 1.5 0 0 0-.789-2.896.5.5 0 0 1-.627-.421 3 3 0 0 0-5.22-1.625 5.6 5.6 0 0 0-1.276.088 4.002 4.002 0 0 1 7.392.91A2.5 2.5 0 0 1 16 7.5"/>
+                    <path d="M7 5a4.5 4.5 0 0 1 4.473 4h.027a2.5 2.5 0 0 1 0 5H3a3 3 0 0 1-.247-5.99A4.5 4.5 0 0 1 7 5m3.5 4.5a3.5 3.5 0 0 0-6.89-.873.5.5 0 0 1-.51.375A2 2 0 1 0 3 13h8.5a1.5 1.5 0 1 0-.376-2.953.5.5 0 0 1-.624-.492z"/>
+                </svg>
+                <p>Clouds</p>
+                <p><%=weatherRightNow.clouds.all %></p>
+            </div>
+            <!-- the rest 2 are in index2.ejs  -->
+        </div>
+<!-- complete day view  -->
+<h3>Day and Night</h3>
+    <div class="class10">
+
+        <p>Sunrise Time: <br /> <%=weatherRightNow.sys.sunrise%></p>
+        <div class="class9">
+            <p>Day Duration: <br /> <%=duration.x%></p>
+            <img src="images/sunAndMoon.png" alt="" />
+            <p>Night Duration: <br /> <%=duration.y%></p>
+        </div>
+        <p>Sunset Time: <br /> <%=weatherRightNow.sys.sunset%></p>
+    </div>
+</div>
+
+<!-- hourly weather forecast for 5days  -->
+
+<div class="hourly">
+    <h2>Hourly WeatherForecast</h2>
+    <!-- 1 temperature  -->
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+    </script>
+<canvas id="myChart1" width="200px" height="100px " ></canvas>
+    <script>
+        // Assuming 'times' and 'temp' are rendered as JSON strings
+        const times = JSON.parse('<%= JSON.stringify(times) %>');
+        const temp = JSON.parse('<%= JSON.stringify(temp) %>');
+    
+        // Convert times to string format for labeling
+        const timeLabels = times.map(time => (time < 10 ? '0' : '') + time + ':00');
+    
+        const ctx2 = document.getElementById('myChart1').getContext('2d');
+        const myChart1 = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: timeLabels,
+                datasets: [{
+                    label: 'Temperature',
+                        data: temp,
+                    fill: false,
+                    borderColor: 'rgba(0, 0, 255, 1)', // Blue color
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Temperature (°C)'
+                        },
+                        ticks: {
+                            suggestedMin: Math.min(...temp) - 5,
+                            suggestedMax: Math.max(...temp) + 5
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Time'
+                        }
+                    }]
+                }
+            }
+        });
+    </script>          
+</div>
+
+
+
+<!-- hourly weather forecast for next 5 days  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+<!-- remember to not to forget keeping ; after using js in ejs templates  -->
