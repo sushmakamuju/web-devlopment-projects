@@ -3,9 +3,11 @@ import ejs from "ejs";
 import bodyParser from "body-parser";
 import axios from "axios";
 import fs from "fs";
+import env from "dotenv";
+env.config();
 const app=express();
 const port=3000;
-const APIKey="";
+const APIKey=process.env.API_KEY;
 function f()
 {
   var result;
