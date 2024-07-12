@@ -2,16 +2,18 @@ import express from "express";
 import pg from "pg";
 import ejs from "ejs";
 import bodyparser from "body-parser";
+import env from "dotenv";
+env.config();
 const port=3000;
 const app=express();
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(express.static("public"));
 const db=new pg.Client({
-    user:"postgres",
-    host:"localhost",
-    database:"bookNotes",
-    password:"sushma",
-    port:5432,
+    user:PG_USER,
+    host:PG_HOST,
+    database:PG_DATABASE,
+    password:PG_PASSWORD,
+    port:PG_PORT,
 });
 db.connect();
 // ***this will show the front page of the website, showing all the posts *** 
