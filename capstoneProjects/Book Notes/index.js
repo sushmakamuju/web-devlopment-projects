@@ -9,11 +9,11 @@ const app=express();
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(express.static("public"));
 const db=new pg.Client({
-    user:PG_USER,
-    host:PG_HOST,
-    database:PG_DATABASE,
-    password:PG_PASSWORD,
-    port:PG_PORT,
+    user: process.env.PG_USER,
+    host: process.env.PG_HOST,
+    database: process.env.PG_DATABASE,
+    password: process.env.PG_PASSWORD,
+    port: process.env.PG_PORT,
 });
 db.connect();
 // ***this will show the front page of the website, showing all the posts *** 
