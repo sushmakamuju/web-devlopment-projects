@@ -23,17 +23,17 @@ app.get("/",async(req,res)=>{
 });
 //*** displays the all the posts in the order of ratings in ascending order ***
 app.get("/rating",async(req,res)=>{
-    const books=await db.query("select * from books");
+    const books=await db.query("select * from books order by rating desc");
     res.render("index.ejs",{books:books.rows,url:urls(books.rows)});
 });
 //*** displays the all the posts in the order of recency ***
 app.get("/recency",async(req,res)=>{
-    const books=await db.query("select * from books");
+    const books=await db.query("select * from books ");
     res.render("index.ejs",{books:books.rows,url:urls(books.rows)});
 });
 //*** displays the all the posts in the order of alphatical order ***
 app.get("/alphabaticalOrder",async(req,res)=>{
-    const books=await db.query("select * from books");
+    const books=await db.query("select * from books order by name");
     res.render("index.ejs",{books:books.rows,url:urls(books.rows)});
 });
 // ***this will take you to a page called "editPost.ejs" where you can enter the values ***
@@ -58,9 +58,11 @@ app.post("/completeView",async(req,res)=>{
 // for deleting a existing post
 
 app.post("/delete",async(req,res)=>{
-    await db.query("delete from books where isbn=$1",[req.body.isbn]);
+    console.log(req.body);
+    await db.query("delete from books where id=$1",[req.body.id]);
     res.redirect("/");
 });
+
 app.post("/edit",async(req,res)=>{
    var x= await db.query("select * from books where id=$1",[req.body.id]);
     x=x.rows;
@@ -69,7 +71,7 @@ app.post("/edit",async(req,res)=>{
 app.post("/updatePost",async(req,res)=>{
     // console.log(req.body.isbn);
     if(req.body.typeOfUpdate=="insert"){
-        await db.query("insert into books (name,isbn,trailer,notes,author,rating) values ($1,$2,$3,$4,$5,$6)",[req.body.bookName,req.body.isbn,req.body.trailer,req.body.notes,req.body.author,req.body.rating]);
+        await db.query("insert into books (name,isbn,trailer,notes,author,rating) values ($1,$2,$3,$4,$5,$6)",[req.body.name,req.body.isbn,req.body.trailer,req.body.notes,req.body.author,req.body.rating]);
     }else{
     await db.query("update books set name=$1,notes=$3,trailer=$4,author=$5,rating=$6,isbn=$7 where id=$2",[req.body.name,req.body.id,req.body.notes,req.body.trailer,req.body.author,req.body.rating,req.body.isbn]);
     }
