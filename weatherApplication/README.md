@@ -62,7 +62,7 @@ weather-application/
 │       ├── weatherExtras.ejs    # Rain / snow conditions
 │       ├── currentStats.ejs     # Temp, pressure, humidity, wind, clouds
 │       ├── dayNight.ejs         # Sunrise, sunset, day & night duration
-│       └── hourlyForecast.ejs   # Hourly chart (Chart.js)
+│       └── Forecast.ejs   # Hourly chart (Chart.js)
 │
 ├── public/                      # Static assets
 │   ├── css/                     # Stylesheets
