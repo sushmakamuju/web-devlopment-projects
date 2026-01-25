@@ -43,7 +43,7 @@ app.post("/placeName", async (req, res) => {
     const weatherIcon = `https://openweathermap.org/img/wn/${currentRes.data.weather[0].icon}@2x.png`;
 
     // 4️⃣ render
-    res.render("weather.ejs", {
+    res.render("index1.ejs", {
       weatherRightNow: weatherData(currentRes.data),
       weatherIcon,
       weather5Days: forecastRes.data,

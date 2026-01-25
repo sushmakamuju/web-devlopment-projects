@@ -47,7 +47,7 @@ This Weather Application allows users to enter a place name and instantly view w
 
 
 ## 📁 Project Structure
-```
+
 weather-application/
 ├── index.js                     # App entry point (Express server)
 ├── package.json
@@ -62,7 +62,7 @@ weather-application/
 │       ├── weatherExtras.ejs    # Rain / snow conditions
 │       ├── currentStats.ejs     # Temp, pressure, humidity, wind, clouds
 │       ├── dayNight.ejs         # Sunrise, sunset, day & night duration
-│       └── Forecast.ejs   # Hourly chart (Chart.js)
+│       └── hourlyForecast.ejs   # Hourly chart (Chart.js)
 │
 ├── public/                      # Static assets
 │   ├── css/                     # Stylesheets
@@ -78,7 +78,7 @@ weather-application/
 │   └── duration.js              # Day & night duration logic
 
 
-```
+
 ---
 
 ## ⚙️ How the Application Works

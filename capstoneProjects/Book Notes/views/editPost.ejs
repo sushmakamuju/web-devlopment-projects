@@ -20,6 +20,7 @@
             <link href="styles.css" rel="stylesheet" />    
 </head>
 <body>
+    
        <!-- creating new post  -->
        <%if(locals.newPost){%>
         <div class="crimson-text-regular  editPage">
@@ -43,6 +44,12 @@
                 <label for="rating">Rating:</label>
                 <input id="rating" name="rating" value="" />
         <br />
+        <!-- uploading a file start -->
+        <!-- <label for="pdfInput" style="padding:10px; background:#4CAF50; color:white; cursor:pointer;">
+        Upload PDF
+        </label> -->
+        <!-- <input type="file" id="pdfInput" accept="application/pdf" hidden> -->
+        <!-- uploading a file end  -->
                 <input type="hidden" name="id"value=""/>
                 <input type="submit" />
         <input type="hidden" name="typeOfUpdate" value="insert" />

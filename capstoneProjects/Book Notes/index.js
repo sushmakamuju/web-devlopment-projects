@@ -4,7 +4,7 @@ import ejs from "ejs";
 import bodyparser from "body-parser";
 import env from "dotenv";
 env.config();
-const port=3000;
+const port=3001;
 const app=express();
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(express.static("public"));
