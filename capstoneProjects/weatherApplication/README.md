@@ -47,7 +47,7 @@ This Weather Application allows users to enter a place name and instantly view w
 
 
 ## 📁 Project Structure
-
+```
 weather-application/
 ├── index.js                     # App entry point (Express server)
 ├── package.json
@@ -78,7 +78,7 @@ weather-application/
 │   └── duration.js              # Day & night duration logic
 
 
-
+```
 ---
 
 ## ⚙️ How the Application Works
