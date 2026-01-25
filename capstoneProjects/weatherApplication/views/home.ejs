@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weatherForecast</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Fira+Code:wght@300..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Serif+Caption:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100&family=Tenor+Sans&family=Whisper&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Fira+Code:wght@300..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Serif+Caption:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100&family=Tenor+Sans&family=Whisper&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Fira+Code:wght@300..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Serif+Caption:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Pacifico&family=Poppins:wght@100&family=Tenor+Sans&family=Whisper&display=swap" rel="stylesheet">
+<style>
+    body
+    {
+        background-image: url("images/img1.avif");
+        background-size: 100% 100vh;
+        background-repeat: no-repeat;     
+    }
+    form
+    {
+        background-color: #FED8B150;
+        height: 500px;
+        width: 700px;
+        border-radius: 2%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap:25px;
+    }
+    form input
+    {
+        width: 300px;
+        background-color: #00328580;
+        height: 40px;
+        border: 3px #F6FAB9;
+        border-radius: 5%;
+    }
+    form >input
+    {
+        width: 80px;
+    }
+    .homePage
+    {
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    form >div
+    {
+        display: flex;
+        gap:20px;
+    }
+    .btn
+    {
+        background-color: #00328580;
+    }
+</style>
+</head>
+<body>
+    <div class="homePage">  
+    <form method="POST" action="/placeName">
+        <div>
+            <label for="location" >Location:</label>
+            <input name="location" type="text" />
+        </div>
+        <p style="text-align: center; margin: 0;">or</p>
+        <div>
+            <label for="latitude">Latitude:</label>
+            <input name="latitude" type="text" />
+        </div>
+        <div>
+            <label for="longitude">Longitude:</label>
+            <input name="longitude" type="text" />
+        </div>
+        <input type="submit" class="btn btn-primary"/>
+    </form>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

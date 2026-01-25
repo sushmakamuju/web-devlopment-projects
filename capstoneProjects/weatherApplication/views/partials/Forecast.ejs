@@ -1,0 +1,49 @@
+<div class="hourly">
+    <h2>Hourly WeatherForecast</h2>
+    <!-- 1 temperature  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+    <canvas id="myChart1" width="200px" height="100px"></canvas>
+
+    <script>
+        const times = JSON.parse('<%= JSON.stringify(times) %>');
+        const temp = JSON.parse('<%= JSON.stringify(temp) %>');
+
+        const timeLabels = times.map(time => (time < 10 ? '0' : '') + time + ':00');
+
+        const ctx2 = document.getElementById('myChart1').getContext('2d');
+        const myChart1 = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: timeLabels,
+                datasets: [{
+                    label: 'Temperature',
+                    data: temp,
+                    fill: false,
+                    borderColor: 'rgba(0, 0, 255, 1)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Temperature (°C)'
+                        },
+                        ticks: {
+                            suggestedMin: Math.min(...temp) - 5,
+                            suggestedMax: Math.max(...temp) + 5
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Time'
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+</div>
