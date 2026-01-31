@@ -1,33 +1,43 @@
 # 📚 Book Notes Application
 
-A full-stack "Node.js and Express-based Book Notes application" that allows users to store, manage, and view notes for books they read.
-The project demonstrates CRUD operations, backend routing, database integration, and server-side rendering using EJS.
+A full-stack "Node.js, Express, and PostgreSQL–based Book Notes application" that allows users to create, view, edit, delete, and organize book notes.
+The project focuses on CRUD operations, database integration, and server-side rendering using EJS.
 
 ---
 
 ## 📌 Project Overview
 
-The "Book Notes Application" helps users maintain structured notes for the books they read.
-Users can add book details, write personal notes, update or delete them, and view all saved notes in an organized manner.
+The Book Notes Application helps users keep track of books they have read along with personal notes and ratings.
 
 The application:
 
-1. Accepts book-related input from the user
-2. Stores and retrieves data from a database
-3. Processes data on the backend
-4. Dynamically renders book notes on the UI
+1. Stores book details in a PostgreSQL database
+2. Displays all saved books on the home page
+3. Allows sorting books by rating, recency, or alphabetical order
+4. Provides full details of a selected book
+5. Supports creating, editing, and deleting book notes
 
 ---
 
-## ✨ Features
+## ✨ Features (ONLY what your code does)
 
-* 📖 Add book details (title, author, genre, etc.)
-* 📝 Write and save personal notes for each book
-* ✏️ Edit existing book notes
-* 🗑️ Delete book notes
-* 📚 View a list of all saved books
-* 🕒 Track reading dates or timestamps
-* 🖥️ Server-side rendered UI using EJS
+* 📖 Add a new book with details:
+
+  * Book name
+  * ISBN
+  * Author
+  * Rating
+  * Notes
+  * Trailer / reference link
+* 📝 Edit existing book details
+* 🗑️ Delete a book note
+* 📚 View all books on the home page
+* ⭐ Sort books by rating (descending)
+* 🔤 Sort books alphabetically by book name
+* 🕒 View books by recency (default order)
+* 🔍 View complete details of a book on a separate page
+* 🖼️ Display book cover images using ISBN (Open Library Covers API)
+* 🖥️ Server-side rendering using EJS templates
 
 ---
 
@@ -46,76 +56,76 @@ The application:
 
 ### Database
 
-* PostgreSQL / SQLite / MongoDB *(choose based on your project)*
+* PostgreSQL
 
 ### Libraries & Tools
 
-* dotenv – for environment variable management
-* body-parser – for handling form submissions
-* pg / mongoose / sqlite3 – database integration
+* pg – PostgreSQL client for Node.js
+* dotenv – environment variable management
+* body-parser – handling form submissions
+
+### External API
+
+* Open Library Covers API (for book cover images)
 
 ---
 
-## 📁 Project Structure
+## 📁 Project Structure (as per your code)
 
 ```
 book-notes/
-├── index.js                     # App entry point (Express server)
+├── index.js                 # Express server & routes
 ├── package.json
 ├── package-lock.json
-├── .env                         # Environment variables
+├── .env                     # PostgreSQL credentials
 ├── .gitignore
 │
-├── views/                       # EJS templates
-│   ├── home.ejs                 # Home page / book list
-│   ├── addBook.ejs              # Add new book note
-│   ├── editBook.ejs             # Edit existing note
-│   └── partials/                # Reusable UI components
-│       ├── header.ejs
-│       └── footer.ejs
+├── views/                   # EJS templates
+│   ├── index.ejs            # Home page (list of books)
+│   ├── editPost.ejs         # Add / Edit book page
+│   └── completeView.ejs     # Full book details page
 │
-├── public/                      # Static assets
+├── public/                  # Static assets
 │   ├── css/
 │   └── images/
-│
-├── routes/                      # Route handlers
-│   └── bookRoutes.js            # CRUD routes
-│
-├── services/                    # Database logic
-│   └── bookService.js           # DB queries
-│
-├── utils/                       # Helper logic
-│   └── formatDate.js            # Date formatting
 ```
 
 ---
 
 ## ⚙️ How the Application Works
 
-1. The user opens the application and sees a list of saved book notes.
-2. The user can add a new book using a form.
-3. The server receives form data via POST requests.
-4. Book details and notes are stored in the database.
-5. The server fetches stored data and processes it if needed.
-6. Data is passed to EJS templates and rendered dynamically.
-7. Users can edit or delete book notes at any time.
+1. The user opens the home page (`/`) to see all saved books.
+2. Books are fetched from the PostgreSQL database and rendered using EJS.
+3. Users can:
+
+   * Add a new book using the New Post page
+   * Edit an existing book
+   * Delete a book
+   * View full details of a book
+4. Sorting options allow users to:
+
+   * Sort by rating
+   * Sort alphabetically
+   * View books by recency
+5. Book cover images are dynamically generated using the book’s ISBN.
 
 ---
 
 ## 🔑 Environment Setup
 
-This project uses environment variables to manage sensitive configuration.
+This project uses environment variables for database configuration.
 
 Create a `.env` file in the root directory:
 
 ```
-DB_HOST=localhost
-DB_USER=your_db_user
-DB_PASSWORD=your_password
-DB_NAME=booknotes
-DB_PORT=5432
+PG_USER=your_postgres_username
+PG_HOST=localhost
+PG_DATABASE=your_database_name
+PG_PASSWORD=your_postgres_password
+PG_PORT=5432
 ```
 
+---
 
 ## ▶️ How to Run the Project Locally
 
@@ -127,47 +137,50 @@ DB_PORT=5432
 npm install
 ```
 
-4. Create a `.env` file and configure database credentials.
-5. Start the server:
+4. Set up the PostgreSQL database and create a `books` table with appropriate columns.
+5. Create a `.env` file and add your database credentials.
+6. Start the server:
 
 ```
 node index.js
 ```
 
-6. Open your browser and visit:
+7. Open your browser and visit:
 
 ```
-http://localhost:3000
+http://localhost:3001
 ```
 
 ---
 
 ## 📌 Important Notes
 
-* `.env` file is required and should not be committed to GitHub.
-* The application runs on port `3000` by default.
-* Uses "server-side rendering" instead of a frontend framework.
+* PostgreSQL must be running before starting the server.
+* The `.env` file is required and should not be committed to version control.
+* The application runs on port 3001.
+* All rendering is done server-side using EJS.
+* Book cover images are fetched using ISBN via Open Library.
+
 ---
 
 ## 🧠 Key Technical Highlights
 
-* Implemented CRUD operations using Express.js
-* Handled form submissions with POST and PUT routes
-* Integrated database queries for persistent storage
-* Used EJS templates for dynamic rendering
-* Organized backend logic using services and routes
-* Maintained clean project structure and separation of concerns
+* Implemented full CRUD functionality using Express.js
+* Integrated PostgreSQL using the `pg` library
+* Used parameterized SQL queries to prevent SQL injection
+* Implemented server-side sorting using SQL `ORDER BY`
+* Dynamically generated book cover image URLs from ISBN
+* Maintained clean separation between routes, views, and utilities
 
 ---
 
-## 🚀 Future Improvements
+## 🚀 Future Improvements (optional, clearly marked)
 
-* Add authentication for multiple users
-* Add book cover images using external APIs
-* Implement search and filter functionality
-* Add tags or categories for notes
-* Improve UI and responsiveness
-* Add unit and integration tests
+* Add search functionality by book name or author
+* Add pagination for large book lists
+* Improve UI styling and responsiveness
+* Add user authentication
+* Add form validation and error handling
 
 ---
 
